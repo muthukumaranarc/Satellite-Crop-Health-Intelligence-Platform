@@ -1,0 +1,1 @@
+# Satellite-Crop-Health-Intelligence-Platform

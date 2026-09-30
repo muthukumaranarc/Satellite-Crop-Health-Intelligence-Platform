@@ -1,0 +1,41 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+
+spring:
+  application:
+    name: agrisight-backend
+  config:
+    import: "optional:file:.env[.properties]"
+  data:
+    mongodb:
+      uri: ${MONGODB_URL}
+      database: ${MONGODB_DATABASE:agrisight}
+      auto-index-creation: true
+
+security:
+  jwt:
+    secret: ${JWT_SECRET:MuthuEduPlusSuperSecureJwtSigningKey2025@#123AgriSightSatellitePlatformSecret}
+    expiration-ms: 86400000
+
+agrisight:
+  ml-service:
+    url: ${ML_SERVICE_URL:http://localhost:8000}
+    connect-timeout-ms: 3000
+    read-timeout-ms: 10000
+  seeding:
+    enabled: ${SEED_DATA:true}
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+
+logging:
+  level:
+    root: INFO
+    com.agrisight: DEBUG
+    org.springframework.data.mongodb: INFO

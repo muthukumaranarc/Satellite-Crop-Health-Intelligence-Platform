@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: agrisight-backend-test
+  data:
+    mongodb:
+      auto-index-creation: false
+
+security:
+  jwt:
+    secret: TestSecureJwtSigningKeyForTestingPurposeOnly2025SecretKey32BytesLong
+    expiration-ms: 3600000
+
+agrisight:
+  ml-service:
+    url: http://localhost:8000
+  seeding:
+    enabled: false
